@@ -8,10 +8,11 @@
 
 <style>
   .product-grid-simple {
-    display: grid;
-    grid-template-columns: repeat({{ columns }}, 1fr);
+    display: grid !important;
+    grid-template-columns: repeat({{ columns }}, 1fr) !important;
     gap: {{ gap }}px;
     padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
+    width: 100%;
   }
 
   @media screen and (max-width: 768px) {
@@ -63,7 +64,7 @@
   }
 </style>
 
-<div class="product-grid-simple section section--{{ section.settings.section_width }} color-{{ section.settings.color_scheme }}">
+<div class="product-grid-simple color-{{ section.settings.color_scheme }}">
   {% if collection != blank %}
     {% for product in collection.products limit: max_products %}
       {% render 'product-card-hover-swap', product: product, image_ratio: section.settings.image_ratio %}
