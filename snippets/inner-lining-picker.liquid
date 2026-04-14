@@ -1,0 +1,66 @@
+{%- doc -%}
+  Inner lining picker — reads custom.inner_lining metafield (list).
+  Circular image swatches, customer picks one.
+  Selection saved as line item property.
+{%- enddoc -%}
+
+{% liquid
+  assign product = product | default: closest.product
+  assign linings = product.metafields.custom.inner_lining.value
+%}
+
+{% if linings and linings.size > 0 %}
+  <div class="button-style-picker" data-inner-lining-picker>
+    <div class="button-style-picker__label">
+      <span class="button-style-picker__title">Inner Lining:</span>
+      <span class="button-style-picker__selected" data-selected-lining>{{ linings[0] }}</span>
+    </div>
+    <div class="button-style-picker__options">
+      {% for lining in linings %}
+        {% case lining %}
+          {% when 'Silk' %}{% assign swatch_file = 'silk.png' %}
+          {% when 'Viscose' %}{% assign swatch_file = 'viscose.png' %}
+          {% when 'Satin' %}{% assign swatch_file = 'satin.png' %}
+          {% else %}{% assign swatch_file = '' %}
+        {% endcase %}
+        <label class="button-style-picker__option{% if forloop.first %} active{% endif %}" title="{{ lining }}">
+          <input
+            type="radio"
+            name="properties[Inner Lining]"
+            value="{{ lining }}"
+            {% if forloop.first %}checked{% endif %}
+          >
+          <span class="button-style-picker__swatch">
+            {% if swatch_file != '' %}
+              <img
+                src="{{ swatch_file | file_url }}"
+                alt="{{ lining }}"
+                width="40"
+                height="40"
+                loading="lazy"
+              >
+            {% endif %}
+          </span>
+        </label>
+      {% endfor %}
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('[data-inner-lining-picker]').forEach(function(picker) {
+        var radios = picker.querySelectorAll('input[type="radio"]');
+        var selectedLabel = picker.querySelector('[data-selected-lining]');
+        var options = picker.querySelectorAll('.button-style-picker__option');
+
+        radios.forEach(function(radio) {
+          radio.addEventListener('change', function() {
+            selectedLabel.textContent = this.value;
+            options.forEach(function(opt) { opt.classList.remove('active'); });
+            this.closest('.button-style-picker__option').classList.add('active');
+          });
+        });
+      });
+    });
+  </script>
+{% endif %}
