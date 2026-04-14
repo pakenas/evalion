@@ -620,36 +620,39 @@
       margin-top: calc(var(--header-height) * var(--transparent-header-offset-boolean) * -1);
     }
   }
-  /* Anine Bing-inspired header styling */
+  /* Anine Bing-inspired header — 62px top row, tight nav row */
   .header {
-    --header-padding: 0px;
     letter-spacing: 2.17px;
   }
 
-  .header.header--compact {
-    --header-padding: 0px;
+  .header .header__row--top {
+    height: 62px;
   }
 
-  .header__row--top .header__columns {
-    padding: 21px 20px !important;
-    --padding-block-start: 21px;
-    --padding-block-end: 21px;
+  .header .header__row--top .header__columns {
+    --padding-block-start: 0px;
+    --padding-block-end: 0px;
+    padding: 0 20px !important;
+    height: 62px;
+    align-items: center;
+  }
+
+  .header .header__row--bottom {
+    height: auto;
+  }
+
+  .header .header__row--bottom .header__columns {
+    --padding-block-start: 0px;
+    --padding-block-end: 0px;
+    padding: 6px 20px 10px !important;
   }
 
   .header--collapse-row-paddings .header__row--top .header__columns {
-    --padding-block-end: 21px;
-    padding-bottom: 21px !important;
-  }
-
-  .header__row--bottom .header__columns {
-    padding: 0 20px 10px !important;
-    --padding-block-start: 0px;
-    --padding-block-end: 10px;
+    --padding-block-end: 0px;
   }
 
   .header--collapse-row-paddings .header__row--bottom .header__columns {
     --padding-block-start: 0px;
-    padding-top: 0 !important;
   }
 
   .header .header-logo {
@@ -657,15 +660,21 @@
     display: none;
   }
 
+  .header .header-actions__action {
+    letter-spacing: 2.17px;
+  }
+
+  .header .header-actions__action svg {
+    width: 20px;
+    height: 20px;
+  }
+
   .header .menu-list__link {
     font-weight: 400;
     letter-spacing: 2.17px;
     font-size: 0.875rem;
-    padding: 7.5px 0 !important;
-    margin: 0 !important;
   }
 
-  /* Override the extended hover area padding */
   .menu-list__list-item:where(:not([slot='overflow'])) > .menu-list__link[aria-haspopup],
   .menu-list__list-item:where(:not([slot='overflow'])) > .menu-list__link,
   .menu-list__list-item:where(:not([slot='overflow'])) > button.menu-list__link {
@@ -675,13 +684,21 @@
     padding-inline: 15px !important;
   }
 
-  .header .header-actions__action {
-    letter-spacing: 2.17px;
+  .header__icon--menu,
+  .header__icon--summary {
+    height: 20px;
+    display: flex;
+    align-items: center;
   }
 
   @media screen and (max-width: 749px) {
-    .header__row--top .header__columns {
-      padding: 10px 15px !important;
+    .header .header__row--top {
+      height: 44px;
+    }
+
+    .header .header__row--top .header__columns {
+      padding: 0 15px !important;
+      height: 44px;
     }
   }
 {% endstylesheet %}
