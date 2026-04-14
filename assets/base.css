@@ -4292,6 +4292,15 @@ text-component {
   }
 }
 
+/* Hide quantity selector and Buy it now */
+.product-details .quantity-selector,
+.product-details quantity-input,
+.product-form-buttons shopify-accelerated-checkout,
+.product-form-buttons .shopify-payment-button,
+.product-form-buttons shopify-accelerated-checkout-button {
+  display: none !important;
+}
+
 /* Add to Cart button — Anine Bing style */
 .product-details .add-to-cart-button.button-secondary {
   background: #fff;
