@@ -4476,14 +4476,20 @@ text-component {
 
 /* No borders/separators between items */
 .product-details .accordion accordion-custom .details {
-  padding: 8px 0;
+  padding: 8px 0 !important;
+  margin: 0 !important;
   border: none !important;
 }
 
 @media screen and (min-width: 992px) {
   .product-details .accordion accordion-custom .details {
-    padding: 14px 0;
+    padding: 14px 0 !important;
   }
+}
+
+.product-details .accordion accordion-custom {
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 /* Remove all divider borders */
