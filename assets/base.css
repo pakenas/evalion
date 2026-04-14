@@ -4302,10 +4302,11 @@ text-component {
 }
 
 /* Add to Cart button — Anine Bing style */
-.product-details .add-to-cart-button.button-secondary {
-  background: #fff;
-  border: 1px solid #000;
-  color: #000;
+.product-details .add-to-cart-button.button-secondary,
+.product-details .add-to-cart-button.button {
+  background: #fff !important;
+  border: 1px solid #000 !important;
+  color: #000 !important;
   font-size: 0.875rem;
   font-weight: 400;
   letter-spacing: 2.17px;
@@ -4313,7 +4314,7 @@ text-component {
   padding: 10px 25px;
   min-height: 40px;
   min-width: 197px;
-  border-radius: 0;
+  border-radius: 0 !important;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -4322,16 +4323,44 @@ text-component {
   cursor: pointer;
 }
 
-.product-details .add-to-cart-button.button-secondary:hover {
-  background: #000;
-  color: #fff;
-  border-color: #000;
+.product-details .add-to-cart-button.button-secondary:hover,
+.product-details .add-to-cart-button.button:hover {
+  background: #000 !important;
+  color: #fff !important;
+  border-color: #000 !important;
+}
+
+.product-details .add-to-cart-button.button-secondary:disabled,
+.product-details .add-to-cart-button.button:disabled,
+.product-details .add-to-cart-button.button-secondary[disabled],
+.product-details .add-to-cart-button.button[disabled] {
+  background: #fff !important;
+  border: 1px solid #000 !important;
+  color: #000 !important;
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.product-details .add-to-cart-button.button-secondary:disabled:hover,
+.product-details .add-to-cart-button.button:disabled:hover {
+  background: #fff !important;
+  color: #000 !important;
+}
+
+.product-details .product-form-buttons {
+  margin-bottom: 20px;
 }
 
 @media screen and (max-width: 996px) {
-  .product-details .add-to-cart-button.button-secondary {
+  .product-details .add-to-cart-button.button-secondary,
+  .product-details .add-to-cart-button.button {
     width: 100%;
     padding: 11px 9px;
+  }
+
+  .product-details .product-form-buttons {
+    flex-direction: column;
+    align-items: center;
   }
 }
 
