@@ -268,10 +268,46 @@
                 "padding-inline-end": 0
               },
               "blocks": {
+                "row_description_men": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "Description",
+                    "open_by_default": false,
+                    "icon": "none"
+                  },
+                  "blocks": {
+                    "desc_text_men": {
+                      "type": "text",
+                      "settings": {
+                        "text": "{{ closest.product.description }}",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "rte",
+                        "font": "var(--font-body--family)",
+                        "font_size": "",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": ["desc_text_men"]
+                },
                 "accordion_row_QKGiUf": {
                   "type": "_accordion-row",
                   "settings": {
-                    "heading": "Key Details:",
+                    "heading": "Composition & Care",
                     "open_by_default": false,
                     "icon": "none",
                     "width": 20
@@ -303,13 +339,49 @@
                       "blocks": {}
                     }
                   },
-                  "block_order": [
-                    "text_ETzhtM"
-                  ]
+                  "block_order": ["text_ETzhtM"]
+                },
+                "row_shipping_men": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "Shipping & Returns",
+                    "open_by_default": false,
+                    "icon": "none"
+                  },
+                  "blocks": {
+                    "shipping_text_men": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Free shipping on orders over €100. Returns accepted within 14 days of delivery.</p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "rte",
+                        "font": "var(--font-body--family)",
+                        "font_size": "",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": ["shipping_text_men"]
                 }
               },
               "block_order": [
-                "accordion_row_QKGiUf"
+                "row_description_men",
+                "accordion_row_QKGiUf",
+                "row_shipping_men"
               ]
             }
           },
@@ -324,7 +396,7 @@
         }
       },
       "settings": {
-        "content_width": "content-center-aligned",
+        "content_width": "content-full-width",
         "desktop_media_position": "left",
         "equal_columns": false,
         "limit_details_width": false,
