@@ -1,0 +1,122 @@
+{%- doc -%}
+  Button style picker — reads custom.button_styles metafield (list).
+  Renders as selectable buttons, customer picks one.
+  Selection is saved as a line item property.
+{%- enddoc -%}
+
+{% liquid
+  assign product = product | default: closest.product
+  assign button_styles = product.metafields.custom.button_styles.value
+%}
+
+{% if button_styles and button_styles.size > 0 %}
+  <div class="button-style-picker" data-button-style-picker>
+    <div class="button-style-picker__label">
+      <span class="button-style-picker__title">Button Style</span>
+      <span class="button-style-picker__selected" data-selected-style>{{ button_styles[0] }}</span>
+    </div>
+    <div class="button-style-picker__options">
+      {% for style in button_styles %}
+        <label class="button-style-picker__option{% if forloop.first %} active{% endif %}">
+          <input
+            type="radio"
+            name="properties[Button Style]"
+            value="{{ style }}"
+            form="product-form-{{ product.id }}"
+            {% if forloop.first %}checked{% endif %}
+          >
+          <span>{{ style }}</span>
+        </label>
+      {% endfor %}
+    </div>
+  </div>
+
+  <style>
+    .button-style-picker {
+      width: 100%;
+    }
+
+    .button-style-picker__label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+      font-size: 0.875rem;
+      letter-spacing: 1.7px;
+      text-transform: uppercase;
+    }
+
+    .button-style-picker__title {
+      font-weight: 400;
+    }
+
+    .button-style-picker__selected {
+      font-weight: 300;
+      text-transform: capitalize;
+    }
+
+    .button-style-picker__options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .button-style-picker__option {
+      position: relative;
+      cursor: pointer;
+    }
+
+    .button-style-picker__option input {
+      position: absolute;
+      opacity: 0;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      margin: 0;
+    }
+
+    .button-style-picker__option span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 35px;
+      min-height: 30px;
+      padding: 4px 12px;
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: 1.7px;
+      border: 1px solid #000;
+      background: #fff;
+      color: #000;
+      transition: background-color 0.15s, color 0.15s;
+    }
+
+    .button-style-picker__option input:checked + span,
+    .button-style-picker__option:hover span {
+      background-color: #000;
+      color: #fff;
+      border-color: #000;
+    }
+  </style>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('[data-button-style-picker]').forEach(function(picker) {
+        var radios = picker.querySelectorAll('input[type="radio"]');
+        var selectedLabel = picker.querySelector('[data-selected-style]');
+        var options = picker.querySelectorAll('.button-style-picker__option');
+
+        radios.forEach(function(radio) {
+          radio.addEventListener('change', function() {
+            selectedLabel.textContent = this.value;
+            options.forEach(function(opt) { opt.classList.remove('active'); });
+            this.closest('.button-style-picker__option').classList.add('active');
+          });
+        });
+      });
+    });
+  </script>
+{% endif %}
