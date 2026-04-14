@@ -4321,6 +4321,7 @@ text-component {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 6px;
   transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   margin-top: 10px;
   cursor: pointer;
@@ -4378,6 +4379,19 @@ text-component {
   .product-details .product-form-buttons--stacked > *:not(.quantity-selector) {
     flex-basis: 100% !important;
   }
+}
+
+/* ATC icon alignment */
+.product-details .add-to-cart-icon {
+  display: inline-flex;
+  align-items: center;
+  height: 1em;
+}
+
+.product-details .add-to-cart-icon svg {
+  width: 18px;
+  height: 18px;
+  vertical-align: middle;
 }
 
 /* Product details — Anine Bing style */
