@@ -4305,7 +4305,7 @@ text-component {
 .product-details .add-to-cart-button.button-secondary,
 .product-details .add-to-cart-button.button {
   background: #fff !important;
-  border: 0.5px solid #000 !important;
+  border: 1px solid #000 !important;
   color: #000 !important;
   font-size: 0.875rem;
   font-weight: 400;
