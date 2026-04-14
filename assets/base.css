@@ -4381,6 +4381,23 @@ text-component {
   }
 }
 
+/* Cart bubble centering fix */
+.header .cart-bubble__text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.header .cart-bubble__text-count {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
 /* ATC icon alignment */
 .product-details .add-to-cart-icon {
   display: inline-flex;
