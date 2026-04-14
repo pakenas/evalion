@@ -255,7 +255,7 @@
               "name": "t:names.accordion",
               "settings": {
                 "icon": "plus",
-                "dividers": true,
+                "dividers": false,
                 "type_preset": "h6",
                 "inherit_color_scheme": true,
                 "color_scheme": "",
