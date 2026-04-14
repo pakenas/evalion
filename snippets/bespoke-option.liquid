@@ -15,7 +15,21 @@
     <span class="bespoke-option__text">Bespoke</span>
   </label>
   <div class="bespoke-option__info" data-bespoke-info>
-    <p>Our team will contact you within 24 hours to discuss your custom requirements, measurements and preferences.</p>
+    <div class="bespoke-option__heading">Made to your specifications</div>
+    <div class="bespoke-option__details">
+      <div class="bespoke-option__detail">
+        <span class="bespoke-option__detail-title">What's included</span>
+        <span class="bespoke-option__detail-text">Personal consultation, custom measurements, hand-finished details and premium fabric selection</span>
+      </div>
+      <div class="bespoke-option__detail">
+        <span class="bespoke-option__detail-title">Timeline</span>
+        <span class="bespoke-option__detail-text">4–6 weeks from consultation to delivery</span>
+      </div>
+      <div class="bespoke-option__detail">
+        <span class="bespoke-option__detail-title">How it works</span>
+        <span class="bespoke-option__detail-text">Our team will contact you within 24 hours to arrange a fitting — in person or virtual</span>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -70,16 +84,44 @@
 
   .bespoke-option__info {
     display: none;
-    padding: 10px 0 0 28px;
+    padding: 14px 0 0 28px;
+  }
+
+  .bespoke-option__heading {
+    font-size: 0.8125rem;
+    font-weight: 400;
+    letter-spacing: 1.7px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    color: #000;
+  }
+
+  .bespoke-option__details {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .bespoke-option__detail {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .bespoke-option__detail-title {
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #000;
+  }
+
+  .bespoke-option__detail-text {
     font-size: 0.8125rem;
     font-weight: 300;
     letter-spacing: 0.5px;
     line-height: 1.6;
     color: #666;
-  }
-
-  .bespoke-option__info p {
-    margin: 0;
   }
 </style>
 
