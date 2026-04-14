@@ -4280,7 +4280,22 @@ text-component {
 }
 @font-face { font-family: HammersmithOne-Regular; src: url('https://cdn.shopify.com/s/files/1/0970/9201/0316/files/HammersmithOne-Regular.otf?v=1755693064'); }
 
-/* Product media gallery — Anine Bing style thumbnails */
+/* Product media gallery — Anine Bing style */
+.product-information__media .media-gallery--carousel slideshow-container {
+  width: 100%;
+  min-width: 0;
+}
+
+.product-information__media .media-gallery--carousel slideshow-slides {
+  width: 100%;
+}
+
+.product-information__media .media-gallery--carousel slideshow-component {
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Anine Bing style thumbnails */
 .media-gallery--carousel .slideshow-controls__thumbnails .slideshow-control {
   width: clamp(44px, 100%, var(--thumbnail-width, 64px));
   border-radius: 0;
