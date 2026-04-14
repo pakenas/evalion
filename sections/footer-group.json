@@ -362,7 +362,9 @@
         "video_position": "cover",
         "background_image_position": "cover",
         "padding-block-start": 80,
-        "padding-block-end": 60
+        "padding-block-end": 60,
+        "padding-inline-start": 240,
+        "padding-inline-end": 240
       }
     }
   },
