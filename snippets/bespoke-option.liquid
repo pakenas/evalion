@@ -130,8 +130,24 @@
     document.querySelectorAll('[data-bespoke-option]').forEach(function(el) {
       var checkbox = el.querySelector('[data-bespoke-checkbox]');
       var info = el.querySelector('[data-bespoke-info]');
+      var pickers = el.parentElement.querySelector('[data-customisation-pickers]');
+
       checkbox.addEventListener('change', function() {
-        info.style.display = this.checked ? 'block' : 'none';
+        if (this.checked) {
+          info.style.display = 'block';
+          if (pickers) {
+            pickers.style.maxHeight = '0';
+            pickers.style.opacity = '0';
+            pickers.style.pointerEvents = 'none';
+          }
+        } else {
+          info.style.display = 'none';
+          if (pickers) {
+            pickers.style.maxHeight = '500px';
+            pickers.style.opacity = '1';
+            pickers.style.pointerEvents = 'auto';
+          }
+        }
       });
     });
   });
