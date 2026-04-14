@@ -54,22 +54,16 @@
             "padding-inline-end": 0
           },
           "blocks": {
-            "image_QPUKAR": {
-              "type": "image",
-              "name": "t:names.image",
+            "asset_image_footer_logo": {
+              "type": "asset-image",
               "settings": {
-                "image": "shopify://shop_images/white_logo_on_black_bg.svg",
+                "asset_filename": "evaleo.svg",
+                "alt": "Eva Lion London",
                 "link": "",
-                "image_ratio": "adapt",
                 "width": "custom",
                 "custom_width": 13,
                 "width_mobile": "custom",
                 "custom_width_mobile": 33,
-                "height": "fit",
-                "border": "none",
-                "border_width": 1,
-                "border_opacity": 100,
-                "border_radius": 0,
                 "padding-block-start": 46,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
@@ -83,14 +77,14 @@
               "settings": {
                 "link": "",
                 "open_in_new_tab": false,
-                "content_direction": "column",
+                "content_direction": "row",
                 "vertical_on_mobile": true,
                 "horizontal_alignment": "flex-start",
-                "vertical_alignment": "flex-end",
+                "vertical_alignment": "center",
                 "align_baseline": false,
                 "horizontal_alignment_flex_direction_column": "flex-start",
                 "vertical_alignment_flex_direction_column": "center",
-                "gap": 12,
+                "gap": 24,
                 "width": "fill",
                 "custom_width": 100,
                 "width_mobile": "fill",
@@ -147,17 +141,17 @@
                   "type": "email-signup",
                   "name": "t:names.email_signup",
                   "settings": {
-                    "width": "custom",
-                    "custom_width": 50,
-                    "inherit_color_scheme": false,
-                    "color_scheme": "scheme-58084d4c-a86e-4d0a-855e-a0966e5043f7",
-                    "border_style": "all",
-                    "border_width": 0,
+                    "width": "fill",
+                    "custom_width": 100,
+                    "inherit_color_scheme": true,
+                    "color_scheme": "",
+                    "border_style": "underline",
+                    "border_width": 1,
                     "border_radius": 0,
                     "input_type_preset": "paragraph",
-                    "style_class": "button",
+                    "style_class": "button-unstyled",
                     "display_type": "text",
-                    "label": "Sign up",
+                    "label": "SUBMIT",
                     "integrated_button": false,
                     "button_type_preset": "paragraph",
                     "padding-block-start": 0,
@@ -202,7 +196,7 @@
             }
           },
           "block_order": [
-            "image_QPUKAR",
+            "asset_image_footer_logo",
             "group_be9xGJ",
             "text_ajQrYz"
           ]
@@ -300,7 +294,7 @@
           "name": "t:names.footer_utilities",
           "settings": {
             "divider_thickness": 0,
-            "padding-block-start": 12,
+            "padding-block-start": 40,
             "padding-block-end": 0
           },
           "blocks": {
@@ -360,15 +354,15 @@
         "align_baseline": false,
         "horizontal_alignment_flex_direction_column": "flex-start",
         "vertical_alignment_flex_direction_column": "center",
-        "gap": 48,
+        "gap": 60,
         "section_width": "page-width",
         "section_height": "",
         "color_scheme": "scheme-bc5b4989-cff9-4eaf-95f0-6f06aca2f469",
         "background_media": "none",
         "video_position": "cover",
         "background_image_position": "cover",
-        "padding-block-start": 0,
-        "padding-block-end": 30
+        "padding-block-start": 80,
+        "padding-block-end": 60
       }
     }
   },
