@@ -622,19 +622,38 @@
   }
   /* Anine Bing-inspired header styling */
   .header {
+    --header-padding: 0px;
     letter-spacing: 2.17px;
   }
 
+  .header.header--compact {
+    --header-padding: 0px;
+  }
+
   .header__row--top .header__columns {
-    padding: 15px 20px;
+    padding: 21px 20px !important;
+    --padding-block-start: 21px;
+    --padding-block-end: 21px;
+  }
+
+  .header--collapse-row-paddings .header__row--top .header__columns {
+    --padding-block-end: 21px;
+    padding-bottom: 21px !important;
   }
 
   .header__row--bottom .header__columns {
-    padding: 7.5px 20px;
+    padding: 0 20px 10px !important;
+    --padding-block-start: 0px;
+    --padding-block-end: 10px;
+  }
+
+  .header--collapse-row-paddings .header__row--bottom .header__columns {
+    --padding-block-start: 0px;
+    padding-top: 0 !important;
   }
 
   .header .header-logo {
-    height: auto;
+    height: 20px;
     display: none;
   }
 
@@ -642,8 +661,18 @@
     font-weight: 400;
     letter-spacing: 2.17px;
     font-size: 0.875rem;
-    padding: 7.5px 0;
-    margin: 0;
+    padding: 7.5px 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Override the extended hover area padding */
+  .menu-list__list-item:where(:not([slot='overflow'])) > .menu-list__link[aria-haspopup],
+  .menu-list__list-item:where(:not([slot='overflow'])) > .menu-list__link,
+  .menu-list__list-item:where(:not([slot='overflow'])) > button.menu-list__link {
+    margin-block: 0 !important;
+    padding-block: 7.5px !important;
+    margin-inline: 0 !important;
+    padding-inline: 15px !important;
   }
 
   .header .header-actions__action {
@@ -652,7 +681,7 @@
 
   @media screen and (max-width: 749px) {
     .header__row--top .header__columns {
-      padding: 10px 15px;
+      padding: 10px 15px !important;
     }
   }
 {% endstylesheet %}
