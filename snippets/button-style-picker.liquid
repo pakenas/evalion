@@ -18,8 +18,8 @@
     </div>
     <div class="button-style-picker__options">
       {% for style in button_styles %}
-        {% assign style_handle = style | handleize %}
-        {% assign swatch_image = style_handle | append: '_button.png' %}
+        {% assign style_handle = style | handleize | replace: '-', '_' %}
+        {% assign swatch_file = style_handle | append: '_button.png' %}
         <label class="button-style-picker__option{% if forloop.first %} active{% endif %}" title="{{ style }}">
           <input
             type="radio"
@@ -29,7 +29,7 @@
           >
           <span class="button-style-picker__swatch">
             <img
-              src="{{ swatch_image | file_img_url: '80x80', crop: 'center' }}"
+              src="{{ swatch_file | file_url }}"
               alt="{{ style }}"
               width="40"
               height="40"
