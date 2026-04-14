@@ -63,11 +63,7 @@
         class="product-information__media"
         data-testid="product-information-media"
       >
-        {%- content_for 'block',
-          type: '_product-media-gallery',
-          id: 'media-gallery',
-          closest.product: closest.product
-        -%}
+        {% render 'product-gallery-anine', product: closest.product %}
       </div>
     {% endcapture %}
 
@@ -77,6 +73,7 @@
         id: 'product-details',
         closest.product: closest.product
       %}
+      {% render 'button-style-picker', product: closest.product %}
     {% endcapture %}
 
     {% for block in render_order_array %}
