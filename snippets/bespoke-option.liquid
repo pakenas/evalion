@@ -1,0 +1,96 @@
+{%- doc -%}
+  Bespoke option — checkbox that flags order for bespoke consultation.
+  Saved as line item property.
+{%- enddoc -%}
+
+<div class="bespoke-option" data-bespoke-option>
+  <label class="bespoke-option__toggle">
+    <input
+      type="checkbox"
+      name="properties[Bespoke]"
+      value="Yes"
+      data-bespoke-checkbox
+    >
+    <span class="bespoke-option__check"></span>
+    <span class="bespoke-option__text">Bespoke</span>
+  </label>
+  <div class="bespoke-option__info" data-bespoke-info>
+    <p>Our team will contact you within 24 hours to discuss your custom requirements, measurements and preferences.</p>
+  </div>
+</div>
+
+<style>
+  .bespoke-option {
+    padding: 16px 0;
+    width: 100%;
+  }
+
+  .bespoke-option__toggle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 0.875rem;
+    letter-spacing: 1.7px;
+    text-transform: uppercase;
+    font-weight: 400;
+  }
+
+  .bespoke-option__toggle input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .bespoke-option__check {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #000;
+    flex-shrink: 0;
+    position: relative;
+    transition: background-color 0.15s;
+  }
+
+  .bespoke-option__toggle input:checked + .bespoke-option__check {
+    background: #000;
+  }
+
+  .bespoke-option__toggle input:checked + .bespoke-option__check::after {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 2px;
+    width: 5px;
+    height: 9px;
+    border: solid #fff;
+    border-width: 0 1.5px 1.5px 0;
+    transform: rotate(45deg);
+  }
+
+  .bespoke-option__info {
+    display: none;
+    padding: 10px 0 0 28px;
+    font-size: 0.8125rem;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    line-height: 1.6;
+    color: #666;
+  }
+
+  .bespoke-option__info p {
+    margin: 0;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('[data-bespoke-option]').forEach(function(el) {
+      var checkbox = el.querySelector('[data-bespoke-checkbox]');
+      var info = el.querySelector('[data-bespoke-info]');
+      checkbox.addEventListener('change', function() {
+        info.style.display = this.checked ? 'block' : 'none';
+      });
+    });
+  });
+</script>
