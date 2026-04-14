@@ -295,14 +295,18 @@
 
   footer .email-signup__input-group {
     max-width: 460px;
+    width: 100%;
     min-height: 30px;
+    position: relative;
   }
 
   footer .email-signup__input--underline {
     color: #fff;
     padding: 1px 2px;
     min-height: 30px;
-    height: 30px;
+    font-size: 1rem;
+    font-weight: 300;
+    letter-spacing: 0.5px;
   }
 
   footer .email-signup__input::placeholder {
@@ -310,13 +314,42 @@
     opacity: 0.7;
   }
 
+  footer .email-signup__input:-webkit-autofill,
+  footer .email-signup__input:-webkit-autofill:hover,
+  footer .email-signup__input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0 30px #000 inset;
+    -webkit-text-fill-color: #fff;
+  }
+
   footer .email-signup__button.button-unstyled {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
     color: #fff;
-    font-size: 14px;
+    background: transparent;
+    font-size: 0.875rem;
     letter-spacing: 2px;
     padding: 4px;
     white-space: nowrap;
     text-transform: uppercase;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  footer .email-signup__button.button-unstyled:hover {
+    transform: translate(3px, -50%);
+  }
+
+  @media screen and (max-width: 996px) {
+    footer .email-signup-block {
+      margin-right: 0;
+    }
+  }
+
+  @media screen and (max-width: 640px) {
+    footer .email-signup-block {
+      max-width: 100%;
+    }
   }
 {% endstylesheet %}
 
