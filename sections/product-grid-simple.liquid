@@ -41,17 +41,22 @@
 
   .product-grid-simple .hover-swap__img--primary {
     z-index: 1;
+    visibility: visible;
   }
 
   .product-grid-simple .hover-swap__img--secondary {
     z-index: 2;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
+    visibility: hidden;
+    transition: visibility 0.3s ease-in-out;
   }
 
   @media (hover: hover) {
+    .product-grid-simple .hover-swap:hover .hover-swap__img--primary {
+      visibility: hidden;
+    }
     .product-grid-simple .hover-swap:hover .hover-swap__img--secondary {
-      opacity: 1;
+      visibility: visible;
+      transition: visibility 0s;
     }
   }
 
