@@ -4292,6 +4292,40 @@ text-component {
   }
 }
 
+/* Add to Cart button — Anine Bing style */
+.product-details .add-to-cart-button.button-secondary {
+  background: #fff;
+  border: 1px solid #000;
+  color: #000;
+  font-size: 0.875rem;
+  font-weight: 400;
+  letter-spacing: 2.17px;
+  text-transform: uppercase;
+  padding: 10px 25px;
+  min-height: 40px;
+  min-width: 197px;
+  border-radius: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.product-details .add-to-cart-button.button-secondary:hover {
+  background: #000;
+  color: #fff;
+  border-color: #000;
+}
+
+@media screen and (max-width: 996px) {
+  .product-details .add-to-cart-button.button-secondary {
+    width: 100%;
+    padding: 11px 9px;
+  }
+}
+
 /* Product details — Anine Bing style */
 
 /* Title */
