@@ -282,11 +282,11 @@
     margin: 0;
   }
 
+  /* Footer email signup — matches Anine Bing layout */
   footer .email-signup-block {
-    display: flex;
-    align-items: center;
     max-width: 500px;
     width: 100%;
+    position: relative;
   }
 
   footer .email-signup__form {
@@ -298,6 +298,7 @@
     width: 100%;
     min-height: 30px;
     position: relative;
+    border-bottom: 1px solid #fff;
   }
 
   footer .email-signup__input--underline {
@@ -307,6 +308,8 @@
     font-size: 1rem;
     font-weight: 300;
     letter-spacing: 0.5px;
+    box-shadow: none;
+    border: none;
   }
 
   footer .email-signup__input::placeholder {
@@ -338,12 +341,6 @@
 
   footer .email-signup__button.button-unstyled:hover {
     transform: translate(3px, -50%);
-  }
-
-  @media screen and (max-width: 996px) {
-    footer .email-signup-block {
-      margin-right: 0;
-    }
   }
 
   @media screen and (max-width: 640px) {
