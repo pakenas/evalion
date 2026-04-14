@@ -1,0 +1,149 @@
+{% liquid
+  assign collection = section.settings.collection
+  assign max_products = section.settings.max_products
+  assign columns = section.settings.columns
+  assign mobile_columns = section.settings.mobile_columns
+  assign gap = section.settings.gap
+%}
+
+<div
+  class="product-grid-simple section section--{{ section.settings.section_width }} color-{{ section.settings.color_scheme }}"
+  style="
+    --grid-columns: {{ columns }};
+    --grid-columns-mobile: {{ mobile_columns }};
+    --grid-gap: {{ gap }}px;
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  "
+>
+  {% if collection != blank %}
+    {% for product in collection.products limit: max_products %}
+      {% render 'product-card-hover-swap', product: product, image_ratio: section.settings.image_ratio %}
+    {% endfor %}
+  {% else %}
+    {% for i in (1..max_products) %}
+      <div class="hover-swap" style="padding-top: 150.35%; background: #f4f4f4;">
+        {% assign variant = i | modulo: 3 | plus: 1 %}
+        {{ 'product-apparel-' | append: variant | placeholder_svg_tag: 'hover-swap__placeholder' }}
+      </div>
+    {% endfor %}
+  {% endif %}
+</div>
+
+{% stylesheet %}
+  .product-grid-simple {
+    display: grid;
+    grid-template-columns: repeat(var(--grid-columns, 4), 1fr);
+    gap: var(--grid-gap, 8px);
+  }
+
+  @media screen and (max-width: 768px) {
+    .product-grid-simple {
+      grid-template-columns: repeat(var(--grid-columns-mobile, 2), 1fr);
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Product Grid (Simple)",
+  "settings": [
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "max_products",
+      "label": "Products to show",
+      "min": 2,
+      "max": 12,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "columns",
+      "label": "Columns (desktop)",
+      "min": 2,
+      "max": 6,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "select",
+      "id": "mobile_columns",
+      "label": "Columns (mobile)",
+      "options": [
+        { "value": "1", "label": "1" },
+        { "value": "2", "label": "2" }
+      ],
+      "default": "2"
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "label": "Gap",
+      "min": 0,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "label": "Image ratio",
+      "options": [
+        { "value": "adapt", "label": "Auto" },
+        { "value": "portrait", "label": "Portrait (4:5)" },
+        { "value": "square", "label": "Square" },
+        { "value": "landscape", "label": "Landscape (16:9)" }
+      ],
+      "default": "portrait"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Width",
+      "options": [
+        { "value": "page-width", "label": "Page" },
+        { "value": "full-width", "label": "Full" }
+      ],
+      "default": "full-width"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "primary"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top padding",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 16
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Grid (Simple)"
+    }
+  ]
+}
+{% endschema %}
