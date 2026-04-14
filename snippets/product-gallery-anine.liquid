@@ -1,0 +1,204 @@
+{%- doc -%}
+  Anine Bing-style product gallery.
+  Vertical thumbnails on left, main image on right.
+  Click thumbnail to swap main image. Pure CSS + minimal JS.
+{%- enddoc -%}
+
+{% liquid
+  assign product = product | default: closest.product
+  assign media_list = product.media
+%}
+
+<style>
+  .anine-gallery {
+    display: flex;
+    gap: 5px;
+    width: 100%;
+    position: relative;
+  }
+
+  .anine-gallery__thumbs {
+    width: calc(20% - 5px);
+    flex-shrink: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .anine-gallery__thumbs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .anine-gallery__thumb {
+    cursor: pointer;
+    border: none;
+    padding: 0;
+    background: none;
+    display: block;
+    width: 100%;
+  }
+
+  .anine-gallery__thumb img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+  }
+
+  .anine-gallery__main {
+    flex: 1;
+    min-width: 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .anine-gallery__main-img {
+    display: none;
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+  }
+
+  .anine-gallery__main-img.active {
+    display: block;
+  }
+
+  /* Mobile: no thumbs, horizontal swipe dots */
+  @media screen and (max-width: 749px) {
+    .anine-gallery {
+      flex-direction: column;
+    }
+
+    .anine-gallery__thumbs {
+      display: none;
+    }
+
+    .anine-gallery__main {
+      width: 100%;
+      overflow-x: scroll;
+      scroll-snap-type: x mandatory;
+      display: flex;
+      scrollbar-width: none;
+    }
+
+    .anine-gallery__main::-webkit-scrollbar {
+      display: none;
+    }
+
+    .anine-gallery__main-img {
+      display: block;
+      min-width: 100%;
+      scroll-snap-align: start;
+      flex-shrink: 0;
+    }
+
+    .anine-gallery__dots {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      padding: 10px 0;
+    }
+
+    .anine-gallery__dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #8b8b8b;
+      opacity: 0.7;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+    }
+
+    .anine-gallery__dot.active {
+      opacity: 1;
+    }
+  }
+
+  @media screen and (min-width: 750px) {
+    .anine-gallery__dots {
+      display: none;
+    }
+  }
+</style>
+
+<div class="anine-gallery" data-anine-gallery>
+  {% if media_list.size > 0 %}
+    <div class="anine-gallery__thumbs">
+      {% for media in media_list %}
+        <button
+          class="anine-gallery__thumb"
+          data-index="{{ forloop.index0 }}"
+          aria-label="View image {{ forloop.index }}"
+        >
+          <img
+            src="{{ media.preview_image | image_url: width: 200 }}"
+            alt="{{ media.alt | escape }}"
+            loading="{% if forloop.index <= 5 %}eager{% else %}lazy{% endif %}"
+          >
+        </button>
+      {% endfor %}
+    </div>
+
+    <div class="anine-gallery__main">
+      {% for media in media_list %}
+        <img
+          class="anine-gallery__main-img{% if forloop.first %} active{% endif %}"
+          data-index="{{ forloop.index0 }}"
+          src="{{ media.preview_image | image_url: width: 1200 }}"
+          srcset="{{ media.preview_image | image_url: width: 600 }} 600w, {{ media.preview_image | image_url: width: 900 }} 900w, {{ media.preview_image | image_url: width: 1200 }} 1200w"
+          sizes="(min-width: 750px) 40vw, 100vw"
+          alt="{{ media.alt | escape }}"
+          loading="{% if forloop.first %}eager{% else %}lazy{% endif %}"
+        >
+      {% endfor %}
+    </div>
+
+    <div class="anine-gallery__dots">
+      {% for media in media_list %}
+        <button class="anine-gallery__dot{% if forloop.first %} active{% endif %}" data-dot="{{ forloop.index0 }}"></button>
+      {% endfor %}
+    </div>
+  {% endif %}
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('[data-anine-gallery]').forEach(function(gallery) {
+      var thumbs = gallery.querySelectorAll('.anine-gallery__thumb');
+      var imgs = gallery.querySelectorAll('.anine-gallery__main-img');
+      var dots = gallery.querySelectorAll('.anine-gallery__dot');
+
+      thumbs.forEach(function(thumb) {
+        thumb.addEventListener('click', function() {
+          var idx = this.dataset.index;
+          imgs.forEach(function(img) { img.classList.remove('active'); });
+          gallery.querySelector('.anine-gallery__main-img[data-index="' + idx + '"]').classList.add('active');
+        });
+      });
+
+      // Mobile: sync dots with scroll
+      var main = gallery.querySelector('.anine-gallery__main');
+      if (main && dots.length > 0) {
+        main.addEventListener('scroll', function() {
+          var scrollLeft = main.scrollLeft;
+          var width = main.offsetWidth;
+          var idx = Math.round(scrollLeft / width);
+          dots.forEach(function(d) { d.classList.remove('active'); });
+          if (dots[idx]) dots[idx].classList.add('active');
+        });
+
+        dots.forEach(function(dot) {
+          dot.addEventListener('click', function() {
+            var idx = parseInt(this.dataset.dot);
+            main.scrollTo({ left: idx * main.offsetWidth, behavior: 'smooth' });
+          });
+        });
+      }
+    });
+  });
+</script>
