@@ -205,7 +205,7 @@
               "type": "variant-picker",
               "disabled": true,
               "settings": {
-                "variant_style": "dropdowns",
+                "variant_style": "buttons",
                 "show_swatches": false,
                 "alignment": "left",
                 "padding-block-start": 0,
