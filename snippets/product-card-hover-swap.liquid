@@ -1,11 +1,6 @@
 {%- doc -%}
   Anine Bing-style product card with hover image swap.
-  Renders first image by default, fades to second image on hover.
-  No carousel, no arrows, no JS — pure CSS.
-
-  @param {object} product - The product object
-  @param {string} [image_ratio] - aspect ratio setting: adapt, portrait, square, landscape
-  @param {string} [sizes] - responsive image sizes attribute
+  Two images stacked, CSS visibility swap on hover. No JS.
 {%- enddoc -%}
 
 {% liquid
@@ -20,39 +15,26 @@
     endfor
   endif
 
-  assign ratio = '4 / 5'
-  if image_ratio == 'square'
-    assign ratio = '1'
-  elsif image_ratio == 'landscape'
-    assign ratio = '16 / 9'
-  elsif image_ratio == 'adapt' and first_image
-    assign ratio = first_image.aspect_ratio
-  endif
-
   assign img_sizes = sizes | default: '(min-width: 750px) 25vw, 50vw'
 %}
 
-<a href="{{ product.url }}" class="hover-swap" aria-label="{{ product.title }}" style="--hover-swap-ratio: {{ ratio }};">
+<a href="{{ product.url }}" class="hover-swap" aria-label="{{ product.title }}">
   {% if first_image %}
     <img
       class="hover-swap__img hover-swap__img--primary"
-      src="{{ first_image | image_url: width: 1200 }}"
-      srcset="{{ first_image | image_url: width: 400 }} 400w, {{ first_image | image_url: width: 600 }} 600w, {{ first_image | image_url: width: 800 }} 800w, {{ first_image | image_url: width: 1200 }} 1200w"
+      src="{{ first_image | image_url: width: 800 }}"
+      srcset="{{ first_image | image_url: width: 400 }} 400w, {{ first_image | image_url: width: 600 }} 600w, {{ first_image | image_url: width: 800 }} 800w"
       sizes="{{ img_sizes }}"
       alt="{{ first_image.alt | escape }}"
-      width="{{ first_image.width }}"
-      height="{{ first_image.height }}"
       loading="lazy"
     >
     {% if second_image %}
       <img
         class="hover-swap__img hover-swap__img--secondary"
-        src="{{ second_image | image_url: width: 1200 }}"
-        srcset="{{ second_image | image_url: width: 400 }} 400w, {{ second_image | image_url: width: 600 }} 600w, {{ second_image | image_url: width: 800 }} 800w, {{ second_image | image_url: width: 1200 }} 1200w"
+        src="{{ second_image | image_url: width: 800 }}"
+        srcset="{{ second_image | image_url: width: 400 }} 400w, {{ second_image | image_url: width: 600 }} 600w, {{ second_image | image_url: width: 800 }} 800w"
         sizes="{{ img_sizes }}"
         alt="{{ second_image.alt | escape }}"
-        width="{{ second_image.width }}"
-        height="{{ second_image.height }}"
         loading="lazy"
       >
     {% endif %}
