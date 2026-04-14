@@ -4353,7 +4353,7 @@ text-component {
 }
 
 .product-details .product-form-buttons {
-  margin-bottom: 20px;
+  margin-bottom: 0;
 }
 
 .product-details .product-form-buttons--stacked > *:not(.quantity-selector) {
