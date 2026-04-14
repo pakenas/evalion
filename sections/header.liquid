@@ -625,30 +625,34 @@
     letter-spacing: 2.17px;
   }
 
+  .header__row--top .header__columns {
+    padding: 15px 20px;
+  }
+
+  .header__row--bottom .header__columns {
+    padding: 7.5px 20px;
+  }
+
+  .header .header-logo {
+    height: auto;
+  }
+
   .header .menu-list__link {
     font-weight: 400;
     letter-spacing: 2.17px;
     font-size: 0.875rem;
-  }
-
-  @media screen and (min-width: 750px) {
-    .header .menu-list__link {
-      font-size: 0.875rem;
-    }
-  }
-
-  .header__columns {
-    padding: 21px 20px;
-  }
-
-  @media screen and (max-width: 749px) {
-    .header__columns {
-      padding: 10px 15px;
-    }
+    padding: 7.5px 0;
+    margin: 0;
   }
 
   .header .header-actions__action {
     letter-spacing: 2.17px;
+  }
+
+  @media screen and (max-width: 749px) {
+    .header__row--top .header__columns {
+      padding: 10px 15px;
+    }
   }
 {% endstylesheet %}
 
