@@ -65,6 +65,7 @@
           value="{{ product.selected_or_first_available_variant.id }}"
         >
         {%- render 'button-style-picker', product: product -%}
+        {%- render 'elbow-patches-picker', product: product -%}
         {%- if block_settings.gift_card_form and product.gift_card? -%}
           {%- render 'gift-card-recipient-form', product: product, form: form, section: section, block: block -%}
         {%- endif -%}

@@ -1,0 +1,66 @@
+{%- doc -%}
+  Elbow patches picker — reads custom.elbow_patches metafield (list).
+  Circular image swatches, customer picks one.
+  Selection saved as line item property.
+{%- enddoc -%}
+
+{% liquid
+  assign product = product | default: closest.product
+  assign patches = product.metafields.custom.elbow_patches.value
+%}
+
+{% if patches and patches.size > 0 %}
+  <div class="button-style-picker" data-elbow-patches-picker>
+    <div class="button-style-picker__label">
+      <span class="button-style-picker__title">Elbow Patches:</span>
+      <span class="button-style-picker__selected" data-selected-patch>{{ patches[0] }}</span>
+    </div>
+    <div class="button-style-picker__options">
+      {% for patch in patches %}
+        {% case patch %}
+          {% when 'Suede' %}{% assign swatch_file = 'suede.png' %}
+          {% when 'Leather' %}{% assign swatch_file = 'leather.png' %}
+          {% when 'Alcantara' %}{% assign swatch_file = 'alcantara.png' %}
+          {% else %}{% assign swatch_file = '' %}
+        {% endcase %}
+        <label class="button-style-picker__option{% if forloop.first %} active{% endif %}" title="{{ patch }}">
+          <input
+            type="radio"
+            name="properties[Elbow Patches]"
+            value="{{ patch }}"
+            {% if forloop.first %}checked{% endif %}
+          >
+          <span class="button-style-picker__swatch">
+            {% if swatch_file != '' %}
+              <img
+                src="{{ swatch_file | file_url }}"
+                alt="{{ patch }}"
+                width="40"
+                height="40"
+                loading="lazy"
+              >
+            {% endif %}
+          </span>
+        </label>
+      {% endfor %}
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('[data-elbow-patches-picker]').forEach(function(picker) {
+        var radios = picker.querySelectorAll('input[type="radio"]');
+        var selectedLabel = picker.querySelector('[data-selected-patch]');
+        var options = picker.querySelectorAll('.button-style-picker__option');
+
+        radios.forEach(function(radio) {
+          radio.addEventListener('change', function() {
+            selectedLabel.textContent = this.value;
+            options.forEach(function(opt) { opt.classList.remove('active'); });
+            this.closest('.button-style-picker__option').classList.add('active');
+          });
+        });
+      });
+    });
+  </script>
+{% endif %}
