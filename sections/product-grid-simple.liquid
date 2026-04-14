@@ -37,17 +37,17 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
   }
 
   .product-grid-simple .hover-swap__img--primary {
-    z-index: 1;
     visibility: visible;
+    z-index: 1;
   }
 
   .product-grid-simple .hover-swap__img--secondary {
     z-index: 2;
-    visibility: hidden;
-    transition: visibility 0.3s ease-in-out;
   }
 
   @media (hover: hover) {
@@ -55,8 +55,13 @@
       visibility: hidden;
     }
     .product-grid-simple .hover-swap:hover .hover-swap__img--secondary {
-      visibility: visible;
-      transition: visibility 0s;
+      visibility: visible !important;
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    .product-grid-simple .hover-swap__img {
+      transition: all 0.5s;
     }
   }
 
