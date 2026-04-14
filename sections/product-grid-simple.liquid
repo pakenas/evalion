@@ -6,43 +6,77 @@
   assign gap = section.settings.gap
 %}
 
-<div
-  class="product-grid-simple section section--{{ section.settings.section_width }} color-{{ section.settings.color_scheme }}"
-  style="
-    --grid-columns: {{ columns }};
-    --grid-columns-mobile: {{ mobile_columns }};
-    --grid-gap: {{ gap }}px;
-    padding-top: {{ section.settings.padding_top }}px;
-    padding-bottom: {{ section.settings.padding_bottom }}px;
-  "
->
+<style>
+  .product-grid-simple {
+    display: grid;
+    grid-template-columns: repeat({{ columns }}, 1fr);
+    gap: {{ gap }}px;
+    padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
+  }
+
+  @media screen and (max-width: 768px) {
+    .product-grid-simple {
+      grid-template-columns: repeat({{ mobile_columns }}, 1fr);
+    }
+  }
+
+  .product-grid-simple .hover-swap {
+    padding-top: 0;
+    position: relative;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    background: #f4f4f4;
+    display: block;
+  }
+
+  .product-grid-simple .hover-swap__img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .product-grid-simple .hover-swap__img--primary {
+    z-index: 1;
+  }
+
+  .product-grid-simple .hover-swap__img--secondary {
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  @media (hover: hover) {
+    .product-grid-simple .hover-swap:hover .hover-swap__img--secondary {
+      opacity: 1;
+    }
+  }
+
+  .product-grid-simple .hover-swap__placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+</style>
+
+<div class="product-grid-simple section section--{{ section.settings.section_width }} color-{{ section.settings.color_scheme }}">
   {% if collection != blank %}
     {% for product in collection.products limit: max_products %}
       {% render 'product-card-hover-swap', product: product, image_ratio: section.settings.image_ratio %}
     {% endfor %}
   {% else %}
     {% for i in (1..max_products) %}
-      <div class="hover-swap" style="padding-top: 150.35%; background: #f4f4f4;">
+      <div class="hover-swap" style="aspect-ratio: 4/5; background: #f4f4f4;">
         {% assign variant = i | modulo: 3 | plus: 1 %}
         {{ 'product-apparel-' | append: variant | placeholder_svg_tag: 'hover-swap__placeholder' }}
       </div>
     {% endfor %}
   {% endif %}
 </div>
-
-{% stylesheet %}
-  .product-grid-simple {
-    display: grid;
-    grid-template-columns: repeat(var(--grid-columns, 4), 1fr);
-    gap: var(--grid-gap, 8px);
-  }
-
-  @media screen and (max-width: 768px) {
-    .product-grid-simple {
-      grid-template-columns: repeat(var(--grid-columns-mobile, 2), 1fr);
-    }
-  }
-{% endstylesheet %}
 
 {% schema %}
 {
