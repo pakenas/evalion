@@ -1,0 +1,436 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "blocks": {
+        "heading": {
+          "type": "text",
+          "name": "Title",
+          "settings": {
+            "text": "<h1>{{ closest.page.title }}</h1>",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "h2",
+            "font": "var(--font-primary--family)",
+            "font_size": "",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "page-content": {
+          "type": "page-content",
+          "settings": {},
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "heading",
+        "page-content"
+      ],
+      "disabled": true,
+      "settings": {
+        "content_direction": "column",
+        "gap": 32,
+        "color_scheme": "",
+        "padding-block-start": 40,
+        "padding-block-end": 80
+      }
+    },
+    "hero_z4b6b6": {
+      "type": "hero",
+      "blocks": {
+        "text_LWAc6K": {
+          "type": "text",
+          "settings": {
+            "text": "<h1>ABOUT US</h1>",
+            "width": "fit-content",
+            "max_width": "narrow",
+            "alignment": "left",
+            "type_preset": "h1",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "text_LWAc6K"
+      ],
+      "name": "t:names.hero",
+      "settings": {
+        "media_type_1": "image",
+        "image_1": "shopify://shop_images/assets-task_01k27hr88benftypd9jdqwkzsd-1754747677_img_0.webp",
+        "media_type_2": "image",
+        "link": "",
+        "open_in_new_tab": false,
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 16,
+        "section_width": "page-width",
+        "section_height": "medium",
+        "section_height_custom": 50,
+        "color_scheme": "scheme-5",
+        "toggle_overlay": true,
+        "overlay_color": "#00000026",
+        "overlay_style": "gradient",
+        "gradient_direction": "to top",
+        "blurred_reflection": false,
+        "reflection_opacity": 75,
+        "padding-block-start": 40,
+        "padding-block-end": 40
+      }
+    },
+    "175563704474b9e554": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_e057790_i8kdE3": {
+          "type": "ai_gen_block_e057790",
+          "settings": {
+            "heading": "Eva Lion London",
+            "content": "<p>Eva Lion London is an accessible luxury brand born in London, created to bridge the gap between fast fashion’s disposability and luxury’s exclusivity. </p><p>We believe that true style lies not in excess, but in precision — in garments that feel timeless, personal, and deeply connected to the wearer.</p>",
+            "text_alignment": "left",
+            "content_width": 800,
+            "section_padding_top": 40,
+            "section_padding_bottom": 10,
+            "heading_size": 32,
+            "heading_color": "#000000",
+            "heading_font_weight": "600",
+            "heading_line_height": "1.2",
+            "heading_text_transform": "none",
+            "heading_margin_bottom": 20,
+            "text_size": 16,
+            "text_color": "#000000",
+            "text_line_height": "1.5",
+            "paragraph_spacing": 16,
+            "bold_font_weight": "700",
+            "link_color": "#000f9f",
+            "link_hover_color": "#000000",
+            "link_decoration": "underline"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_e057790_i8kdE3"
+      ],
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 12,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
+    "blocks_3xkPft": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_e057790_PVXfq3": {
+          "type": "ai_gen_block_e057790",
+          "settings": {
+            "heading": "",
+            "content": "<p>At the heart of our philosophy is personalisation. No two Eva Lion blazers are the same. </p><p>Each piece carries a subtle signature — from three distinctive undercollar designs, to future customisation options such as monogrammed linings, contrast stitching, and unique buttons. </p><p>These quiet details ensure that your garment feels truly yours, while never shouting for attention.</p>",
+            "text_alignment": "left",
+            "content_width": 800,
+            "section_padding_top": 40,
+            "section_padding_bottom": 10,
+            "heading_size": 32,
+            "heading_color": "#000000",
+            "heading_font_weight": "600",
+            "heading_line_height": "1.2",
+            "heading_text_transform": "none",
+            "heading_margin_bottom": 20,
+            "text_size": 16,
+            "text_color": "#000000",
+            "text_line_height": "1.5",
+            "paragraph_spacing": 16,
+            "bold_font_weight": "700",
+            "link_color": "#000f9f",
+            "link_hover_color": "#000000",
+            "link_decoration": "underline"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_e057790_PVXfq3"
+      ],
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 12,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
+    "blocks_HWMAa7": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_e057790_yDEncD": {
+          "type": "ai_gen_block_e057790",
+          "settings": {
+            "heading": "",
+            "content": "<p>Fit is everything. Our blazers are structured yet versatile, cut to flatter diverse body types while offering options for tailoring and adjustment. </p><p>Beyond ready-to-wear, Eva Lion London introduces a hybrid model: garments are available to purchase online and then refined through tailoring services, creating a precise fit that evolves with you. </p><p>This approach removes the guesswork of sizing while honouring craftsmanship at every stage.</p>",
+            "text_alignment": "left",
+            "content_width": 800,
+            "section_padding_top": 40,
+            "section_padding_bottom": 10,
+            "heading_size": 32,
+            "heading_color": "#000000",
+            "heading_font_weight": "600",
+            "heading_line_height": "1.2",
+            "heading_text_transform": "none",
+            "heading_margin_bottom": 20,
+            "text_size": 16,
+            "text_color": "#000000",
+            "text_line_height": "1.5",
+            "paragraph_spacing": 16,
+            "bold_font_weight": "700",
+            "link_color": "#000f9f",
+            "link_hover_color": "#000000",
+            "link_decoration": "underline"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_e057790_yDEncD"
+      ],
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 12,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
+    "blocks_axpBHH": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_e057790_zAKUXR": {
+          "type": "ai_gen_block_e057790",
+          "settings": {
+            "heading": "",
+            "content": "<p>Every piece is designed to be modular and lasting — the building blocks of a wardrobe that adapts to your lifestyle. </p><p>Constructed from sustainable European fabrics and produced with ethical precision, our blazers are staples reimagined: designed to stand out quietly, elevate your everyday, and grow more personal over time.</p>",
+            "text_alignment": "left",
+            "content_width": 800,
+            "section_padding_top": 40,
+            "section_padding_bottom": 10,
+            "heading_size": 32,
+            "heading_color": "#000000",
+            "heading_font_weight": "600",
+            "heading_line_height": "1.2",
+            "heading_text_transform": "none",
+            "heading_margin_bottom": 20,
+            "text_size": 16,
+            "text_color": "#000000",
+            "text_line_height": "1.5",
+            "paragraph_spacing": 16,
+            "bold_font_weight": "700",
+            "link_color": "#000f9f",
+            "link_hover_color": "#000000",
+            "link_decoration": "underline"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_e057790_zAKUXR"
+      ],
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 12,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
+    "blocks_KgEgq6": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_e057790_BPgHTi": {
+          "type": "ai_gen_block_e057790",
+          "settings": {
+            "heading": "",
+            "content": "<p><strong>Eva Lion London is not just clothing. It is a way of dressing that values individuality, longevity, and confidence through simplicity.</strong></p>",
+            "text_alignment": "left",
+            "content_width": 800,
+            "section_padding_top": 40,
+            "section_padding_bottom": 40,
+            "heading_size": 32,
+            "heading_color": "#000000",
+            "heading_font_weight": "600",
+            "heading_line_height": "1.2",
+            "heading_text_transform": "none",
+            "heading_margin_bottom": 20,
+            "text_size": 16,
+            "text_color": "#000000",
+            "text_line_height": "1.5",
+            "paragraph_spacing": 16,
+            "bold_font_weight": "600",
+            "link_color": "#000f9f",
+            "link_hover_color": "#000000",
+            "link_decoration": "underline"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_e057790_BPgHTi"
+      ],
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 12,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    }
+  },
+  "order": [
+    "main",
+    "hero_z4b6b6",
+    "175563704474b9e554",
+    "blocks_3xkPft",
+    "blocks_HWMAa7",
+    "blocks_axpBHH",
+    "blocks_KgEgq6"
+  ]
+}

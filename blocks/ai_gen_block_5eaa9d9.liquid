@@ -1,0 +1,440 @@
+{% doc %}
+  @prompt
+    Create a full-width hero section with the following features:
+    
+    Background Image: Uploadable/customizable hero image (default: close-up of a jacket from behind, showing texture and neutral tones).
+    
+    Overlay Text Content (center-aligned, vertically and horizontally in the hero):
+    
+    Small Heading (uppercase, subtle font): “STEP INTO THE NEW SEASON”
+    
+    Large Heading (bold, uppercase): “CASUAL FALL LAYERING”
+    
+    CTA Button:
+    
+    Label: “Discover More”
+    
+    Style: White background, black text, subtle shadow/hover effect.
+    
+    Clickable link customizable.
+    
+    Responsive Design:
+    
+    On desktop: center the text and button in the middle of the hero section.
+    
+    On tablet/mobile: stack text and button, centered, with scaled-down font sizes.
+    
+    Customization Controls:
+    
+    Change background image.
+    
+    Edit small heading, large heading, and button text.
+    
+    Adjust button color, text color, and alignment.
+    
+    Enable/disable overlay dark gradient if needed for text visibility.
+    
+    The design should use modern minimalist styling, strong typography, and flexible spacing so merchants can adapt it to any seasonal campaign.
+
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-hero-section-{{ ai_gen_id }} {
+    position: relative;
+    width: 100%;
+    height: {{ block.settings.hero_height }}px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-color: #f4f4f4;
+  }
+
+  .ai-hero-background-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+  }
+
+  .ai-hero-placeholder-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f4f4f4;
+    z-index: 1;
+  }
+
+  .ai-hero-placeholder-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .ai-hero-empty-state-{{ ai_gen_id }} {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    font-size: 14px;
+    border-radius: 4px;
+    text-align: center;
+    pointer-events: none;
+    z-index: 3;
+  }
+
+  {% if block.settings.overlay_enabled %}
+    .ai-hero-overlay-{{ ai_gen_id }} {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, {{ block.settings.overlay_opacity | divided_by: 100.0 }}) 0%,
+        rgba(0, 0, 0, {{ block.settings.overlay_opacity | divided_by: 100.0 }}) 100%
+      );
+      z-index: 2;
+    }
+  {% endif %}
+
+  .ai-hero-content-{{ ai_gen_id }} {
+    position: relative;
+    z-index: 3;
+    text-align: {{ block.settings.text_alignment }};
+    color: {{ block.settings.text_color }};
+    max-width: 800px;
+    padding: 40px 20px;
+  }
+
+  .ai-hero-small-heading-{{ ai_gen_id }} {
+    font-size: {{ block.settings.small_heading_size }}px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 0 0 16px 0;
+    opacity: 0.9;
+  }
+
+  .ai-hero-large-heading-{{ ai_gen_id }} {
+    font-size: {{ block.settings.large_heading_size }}px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 1.1;
+    margin: 0 0 32px 0;
+  }
+
+  .ai-hero-button-{{ ai_gen_id }} {
+    display: inline-block;
+    padding: 16px 32px;
+    background-color: {{ block.settings.button_background_color }};
+    color: {{ block.settings.button_text_color }};
+    text-decoration: none;
+    font-size: {{ block.settings.button_font_size }}px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: {{ block.settings.button_border_radius }}px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: none;
+    cursor: pointer;
+  }
+
+  .ai-hero-button-{{ ai_gen_id }}:hover {
+    background-color: {{ block.settings.button_hover_background_color }};
+    color: {{ block.settings.button_hover_text_color }};transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  @media screen and (max-width: 768px) {
+    .ai-hero-section-{{ ai_gen_id }} {
+      height: {{ block.settings.hero_height_mobile }}px;
+    }
+
+    .ai-hero-content-{{ ai_gen_id }} {
+      padding: 20px 16px;
+    }
+
+    .ai-hero-small-heading-{{ ai_gen_id }} {
+      font-size: {{ block.settings.small_heading_size | times: 0.8 }}px;
+      margin-bottom: 12px;
+    }
+
+    .ai-hero-large-heading-{{ ai_gen_id }} {
+      font-size: {{ block.settings.large_heading_size | times: 0.7 }}px;
+      margin-bottom: 24px;
+    }
+
+    .ai-hero-button-{{ ai_gen_id }} {
+      padding: 14px 28px;
+      font-size: {{ block.settings.button_font_size | times: 0.9 }}px;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .ai-hero-small-heading-{{ ai_gen_id }} {
+      font-size: {{ block.settings.small_heading_size | times: 0.7 }}px;
+    }
+
+    .ai-hero-large-heading-{{ ai_gen_id }} {
+      font-size: {{ block.settings.large_heading_size | times: 0.6 }}px;
+    }
+
+    .ai-hero-button-{{ ai_gen_id }} {
+      padding: 12px 24px;
+      font-size: {{ block.settings.button_font_size | times: 0.8 }}px;
+    }
+  }
+{% endstyle %}
+
+<section class="ai-hero-section-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  {% if block.settings.hero_image %}
+    <img
+      src="{{ block.settings.hero_image | image_url: width: 2000 }}"
+      alt="{{ block.settings.hero_image.alt | escape }}"
+      class="ai-hero-background-{{ ai_gen_id }}"
+      loading="lazy"
+      width="{{ block.settings.hero_image.width }}"
+      height="{{ block.settings.hero_image.height }}"
+    >
+  {% else %}
+    <div class="ai-hero-placeholder-{{ ai_gen_id }}">
+      {{ 'hero-apparel-1' | placeholder_svg_tag }}<div class="ai-hero-empty-state-{{ ai_gen_id }}">
+        Add a hero background image
+      </div>
+    </div>
+  {% endif %}
+
+  {% if block.settings.overlay_enabled %}
+    <div class="ai-hero-overlay-{{ ai_gen_id }}"></div>
+  {% endif %}
+
+  <div class="ai-hero-content-{{ ai_gen_id }}">
+    {% if block.settings.small_heading != blank %}
+      <h3 class="ai-hero-small-heading-{{ ai_gen_id }}">
+        {{ block.settings.small_heading }}
+      </h3>
+    {% endif %}
+
+    {% if block.settings.large_heading != blank %}
+      <h1 class="ai-hero-large-heading-{{ ai_gen_id }}">
+        {{ block.settings.large_heading }}
+      </h1>
+    {% endif %}
+
+    {% if block.settings.button_text != blank %}
+      <a
+        href="{{ block.settings.button_link | default: '#' }}"
+        class="ai-hero-button-{{ ai_gen_id }}"
+      >
+        {{ block.settings.button_text }}
+      </a>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Background"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero background image"
+    },
+    {
+      "type": "checkbox",
+      "id": "overlay_enabled",
+      "label": "Enable dark overlay",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 80,
+      "step": 5,
+      "unit": "%",
+      "label": "Overlay opacity",
+      "default": 30
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "small_heading",
+      "label": "Small heading",
+      "default": "Step into the new season"
+    },
+    {
+      "type": "text",
+      "id": "large_heading",
+      "label": "Large heading",
+      "default": "Casual fall layering"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Discover more"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "hero_height",
+      "min": 400,
+      "max": 800,
+      "step": 50,
+      "unit": "px",
+      "label": "Desktop height",
+      "default": 600
+    },
+    {
+      "type": "range",
+      "id": "hero_height_mobile",
+      "min": 300,
+      "max": 600,
+      "step": 25,
+      "unit": "px",
+      "label": "Mobile height",
+      "default": 500
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Text alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "small_heading_size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Small heading size",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "large_heading_size",
+      "min": 32,
+      "max": 80,
+      "step": 2,
+      "unit": "px",
+      "label": "Large heading size",
+      "default": 56
+    },
+    {
+      "type": "range",
+      "id": "button_font_size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Button font size",
+      "default": 14
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_background_color",
+      "label": "Button background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button text",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_background_color",
+      "label": "Button hover background",
+      "default": "#f5f5f5"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_text_color",
+      "label": "Button hover text",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Button style"
+    },
+    {
+      "type": "range",
+      "id": "button_border_radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Button border radius",
+      "default": 4
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero section"
+    }
+  ]
+}
+{% endschema %}
