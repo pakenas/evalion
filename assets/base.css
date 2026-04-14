@@ -4279,6 +4279,57 @@ text-component {
   }
 }
 @font-face { font-family: HammersmithOne-Regular; src: url('https://cdn.shopify.com/s/files/1/0970/9201/0316/files/HammersmithOne-Regular.otf?v=1755693064'); }
+
+/* Hover swap product card — Anine Bing style */
+.hover-swap {
+  display: block;
+  position: relative;
+  width: 100%;
+  padding-top: 150.35%;
+  overflow: hidden;
+  background: #f4f4f4;
+}
+
+.hover-swap__img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: visibility 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.hover-swap__img--primary {
+  visibility: visible;
+  opacity: 1;
+  z-index: 1;
+}
+
+.hover-swap__img--secondary {
+  visibility: hidden;
+  opacity: 0;
+  z-index: 2;
+}
+
+@media (hover: hover) {
+  .hover-swap:hover .hover-swap__img--primary {
+    visibility: hidden;
+    opacity: 0;
+  }
+  .hover-swap:hover .hover-swap__img--secondary {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+.hover-swap__placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
 h1 {
   font-family: HammersmithOne-Regular !important;
 }
