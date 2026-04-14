@@ -4351,6 +4351,14 @@ text-component {
   margin-bottom: 20px;
 }
 
+.product-details .product-form-buttons--stacked > *:not(.quantity-selector) {
+  flex-basis: auto !important;
+}
+
+.product-details .product-form-buttons--stacked {
+  justify-content: flex-start;
+}
+
 @media screen and (max-width: 996px) {
   .product-details .add-to-cart-button.button-secondary,
   .product-details .add-to-cart-button.button {
@@ -4422,18 +4430,6 @@ text-component {
   color: #656565;
   background-color: #f6f6f6;
   position: relative;
-}
-
-/* Add to cart button */
-.product-details .button--add-to-cart,
-.product-details .add-to-cart-button {
-  min-width: 197px;
-  padding: 10px 25px;
-  font-size: 0.875rem;
-  font-weight: 400;
-  letter-spacing: 1.7px;
-  text-transform: uppercase;
-  margin-top: 10px;
 }
 
 @media screen and (max-width: 996px) {
