@@ -4389,9 +4389,14 @@ text-component {
   padding: 0 !important;
 }
 
+.header .cart-bubble__text {
+  letter-spacing: 0 !important;
+}
+
 .header .cart-bubble__text-count {
   text-align: center;
   width: 20px;
+  letter-spacing: 0 !important;
 }
 
 /* ATC icon alignment */
