@@ -1,0 +1,15 @@
+{%- doc -%}
+  Product breadcrumb navigation — Anine Bing style.
+  Home > Collection > Product Title
+{%- enddoc -%}
+
+<nav class="breadcrumb" role="navigation" aria-label="breadcrumbs">
+  <a href="/" title="{{ shop.name }}">{{ shop.name }}</a>
+  <span class="breadcrumb__divider" aria-hidden="true">&rsaquo;</span>
+  {% if product.collections.size > 0 %}
+    {% assign collection = product.collections | first %}
+    <a href="{{ collection.url }}" title="{{ collection.title }}">{{ collection.title }}</a>
+    <span class="breadcrumb__divider" aria-hidden="true">&rsaquo;</span>
+  {% endif %}
+  <span class="breadcrumb__current">{{ product.title }}</span>
+</nav>
