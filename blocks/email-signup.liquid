@@ -285,11 +285,24 @@
   footer .email-signup-block {
     display: flex;
     align-items: center;
+    max-width: 500px;
+    width: 100%;
   }
 
   footer .email-signup__form {
     width: 100%;
-    justify-content: center;
+  }
+
+  footer .email-signup__input-group {
+    max-width: 460px;
+    min-height: 30px;
+  }
+
+  footer .email-signup__input--underline {
+    color: #fff;
+    padding: 1px 2px;
+    min-height: 30px;
+    height: 30px;
   }
 
   footer .email-signup__input::placeholder {
@@ -297,13 +310,13 @@
     opacity: 0.7;
   }
 
-  footer .email-signup__input--underline {
-    color: #fff;
-  }
-
   footer .email-signup__button.button-unstyled {
     color: #fff;
-    letter-spacing: 0.5px;
+    font-size: 14px;
+    letter-spacing: 2px;
+    padding: 4px;
+    white-space: nowrap;
+    text-transform: uppercase;
   }
 {% endstylesheet %}
 
