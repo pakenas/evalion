@@ -4462,39 +4462,94 @@ text-component {
   }
 }
 
-/* Accordion */
-.product-details accordion-custom,
+/* Accordion — Anine Bing style */
 .product-details .accordion {
-  border-top: none;
+  margin-top: 40px;
+  padding-bottom: 5px;
 }
 
-.product-details .accordion__item,
-.product-details accordion-custom details {
-  padding: 14px 0;
-  border-bottom: 1px solid #e4e4e4;
+@media screen and (min-width: 997px) {
+  .product-details .accordion {
+    max-width: 450px;
+  }
 }
 
-.product-details .accordion__label,
-.product-details accordion-custom summary {
-  font-size: 0.875rem;
-  font-weight: 400;
+/* No borders/separators between items */
+.product-details .accordion accordion-custom .details {
+  padding: 8px 0;
+  border: none !important;
+}
+
+@media screen and (min-width: 992px) {
+  .product-details .accordion accordion-custom .details {
+    padding: 14px 0;
+  }
+}
+
+/* Remove all divider borders */
+.product-details .accordion--dividers accordion-custom .details,
+.product-details .accordion--dividers accordion-custom:first-child .details,
+.product-details .accordion--dividers accordion-custom:last-child .details {
+  border: none !important;
+}
+
+/* Label */
+.product-details .accordion .details__header {
+  font-size: 0.875rem !important;
+  font-weight: 300 !important;
   letter-spacing: 1.7px;
   text-transform: uppercase;
   cursor: pointer;
+  position: relative;
   padding-left: 18px;
+  min-height: auto !important;
+  list-style: none;
 }
 
-.product-details .accordion__content,
-.product-details accordion-custom .accordion__content {
+.product-details .accordion .details__header::-webkit-details-marker {
+  display: none;
+}
+
+.product-details .accordion .details__header:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* Icon — plus/minus, positioned left of text */
+.product-details .accordion .icon-plus,
+.product-details .accordion .icon-caret {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.product-details .accordion .icon-plus svg,
+.product-details .accordion .icon-caret svg {
+  width: 10px;
+  height: 10px;
+  stroke: #000;
+}
+
+/* Hide caret, show plus */
+.product-details .accordion .icon-caret {
+  display: none;
+}
+
+/* Content */
+.product-details .accordion .details-content {
   padding-top: 13px;
   padding-left: 29.5px;
+  padding-bottom: 8px;
   font-weight: 300;
   font-size: 0.875rem;
   letter-spacing: 0.5px;
   line-height: 1.6;
+  flex-direction: column;
 }
 
-.product-details .accordion__content p + p {
+.product-details .accordion .details-content p + p:not(:empty) {
   margin-top: 10px;
 }
 
