@@ -4382,20 +4382,19 @@ text-component {
 }
 
 /* Cart bubble centering fix */
-.header .cart-bubble__text {
+.header .cart-bubble {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  height: 100%;
-  text-align: center;
 }
 
 .header .cart-bubble__text-count {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: block;
+  text-align: center;
   width: 100%;
+  padding: 0;
+  margin: 0;
+  line-height: 20px;
 }
 
 /* ATC icon alignment */
